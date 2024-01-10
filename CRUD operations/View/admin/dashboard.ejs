@@ -1,0 +1,38 @@
+<% include('../layouts/Header.ejs') %>
+
+<h1> Admin Dashboard:</h1>
+
+<br><br>
+<table width="50%">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile Number</th>
+        <th>Profile Picture</th>
+        <th>Verified</th>
+    </tr>
+
+    <% if(users.length>0){
+      for ( let i=0;i<users.length;i++){
+        %>
+        <tr>
+            <td><%= users[i].name %></td>
+            <td><%= users[i].email %></td>
+            <td><%= users[i].mobile %></td>
+            <td><img src="/userimages/<%= users[i].image %>" alt="<%= users[i].image %>" width="100px" height="100px"></td>
+            <td><%= users[i].is_varified %></td>
+            <td><a href="/admin/delete-user?id=<%= users[i]._id %>">Delete User</a></td>
+        </tr>
+        <% 
+      }
+    }else{
+        %>
+        <tr>
+            <td colspan="5">Users Not Found.</td>
+        </tr>
+        <%
+    }
+    %>
+</table>
+<a href="/admin/home">Previous Page</a>
+<% include('../layouts/Footer.ejs') %>

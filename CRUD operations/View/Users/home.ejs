@@ -1,0 +1,25 @@
+<% include('../layouts/Header.ejs') %>
+<h1>welcome to the home page,<%= User.name %></h1>
+<table width="50%">
+    <tr>
+        <td><img src="userimages/<%= User.image %>" width="100px" height="100px" alt="<%= User.image %>"></td>
+    </tr>
+    <tr>
+        <td>Email:</td>
+        <td><%= User.email %></td>
+    </tr>
+    <tr>
+        <td>Mobile.no:</td>
+        <td><%= User.mobile %></td>
+    </tr>
+    <tr>
+        <td>Are you varified?</td>
+        <td>Yes</td>
+    </tr>
+    
+</table>
+<br>
+<a href="/edit?id=<%= User._id %>">Edit Profile</a>
+<br>
+<a href="/logout">Logout</a>
+<% include('../layouts/Footer.ejs') %>
